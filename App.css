@@ -1,0 +1,24 @@
+.content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content header {
+    display: flex;
+    justify-content: center;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px
+}
+
+.movie {
+    text-align: center;
+    list-style: none;
+}
