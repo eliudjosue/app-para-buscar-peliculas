@@ -1,28 +1,20 @@
-import './App.css'
-import mockWhitResult from "./mocks/whitResult.json";
+import "./App.css";
+import { useMovies } from "./hooks/useMovies";
+import { Movies } from "./components/Movies";
+
 export function App() {
-  const movies = mockWhitResult.Search;
-  const hasMovie = movies.length > 0;
+const { movies: mappetMovie } = useMovies()
   return (
     <div className="content">
       <header>
-        <input type="text" placeholder="Introduce el nombre de tu pelicula"/>
-        <button>Buscar</button>
+        <h1>Buscador de Películas</h1>
+        <form action="" className="form">
+          <input type="text" placeholder="Introduce el nombre de tu pelicula" />
+          <button>Buscar</button>
+        </form>
       </header>
       <main>
-        {hasMovie ? (
-          <ul className='movies'>
-            {movies.map((movie) => (
-              <li key={movie.imdbID} className='movie'>
-                <h3>{movie.Title}</h3>
-                <p>{movie.Year}</p>
-                <img src={movie.Poster} alt={movie.alt} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No hay imagen para mostrar</p>
-        )}
+        <Movies movies={mappetMovie}/>
       </main>
     </div>
   );
