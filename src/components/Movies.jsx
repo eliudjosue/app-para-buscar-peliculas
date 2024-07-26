@@ -17,6 +17,7 @@ export function ListOfMovies ({ movies }) {
   };
 
  export function Movies ({ movies }) {
+  if (movies === undefined) return
   const hasMovie = movies.length > 0;
     return(
         hasMovie ? <ListOfMovies movies={ movies } />: <NotRendeMovies/>
